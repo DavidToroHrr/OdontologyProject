@@ -11,8 +11,11 @@ app.use(cors()); // Puerto de Vite (React)
 app.use(express.json()); // Permite leer req.body en todas las peticiones POST
 
 // ─── 2. NODEMAILER TRANSPORTER ───────────────────────────────────────────────
+// ─── 2. NODEMAILER TRANSPORTER ───────────────────────────────────────────────
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: "smtp.gmail.com", // Especificamos el servidor exacto
+  port: 465,              // Puerto seguro para SSL
+  secure: true,           // Forzamos la conexión encriptada
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
