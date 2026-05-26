@@ -13,17 +13,18 @@ app.use(express.json()); // Permite leer req.body en todas las peticiones POST
 // ─── 2. NODEMAILER TRANSPORTER ───────────────────────────────────────────────
 // ─── 2. NODEMAILER TRANSPORTER ───────────────────────────────────────────────
 // ─── 2. NODEMAILER TRANSPORTER ───────────────────────────────────────────────
+// ─── 2. NODEMAILER TRANSPORTER ───────────────────────────────────────────────
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
-  port: 465,
-  secure: true,
+  port: 587, // Cambiamos al puerto STARTTLS
+  secure: false, // DEBE ser false para el puerto 587
+  requireTLS: true, // Obligamos a que se encripte
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
-  // 🔥 ESTE ES EL TRUCO PARA RENDER 🔥
-  // Fuerza a usar IPv4 en lugar de IPv6, evitando el bloqueo de red
-  family: 4 
+  logger: true, // Nos mostrará el tráfico exacto en los logs de Render
+  debug: true
 });
 // Verificar conexión de correo al iniciar
 transporter.verify((error) => {
