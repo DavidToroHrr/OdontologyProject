@@ -15,10 +15,11 @@ app.use(express.json()); // Permite leer req.body en todas las peticiones POST
 // ─── 2. NODEMAILER TRANSPORTER ───────────────────────────────────────────────
 // ─── 2. NODEMAILER TRANSPORTER ───────────────────────────────────────────────
 // ─── 2. NODEMAILER TRANSPORTER ───────────────────────────────────────────────
+// ─── 2. NODEMAILER TRANSPORTER ───────────────────────────────────────────────
 const transporter = nodemailer.createTransport({
   host: "smtp-relay.brevo.com",
-  port: 587,
-  secure: false, // OBLIGATORIO en false para el puerto 587
+  port: 2525, // 🔥 EL PUERTO ANTIBLOQUEOS 🔥
+  secure: false, // Sigue en false para este puerto
   auth: {
     user: process.env.EMAIL_USER, 
     pass: process.env.EMAIL_PASS, 
