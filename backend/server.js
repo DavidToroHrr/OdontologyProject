@@ -16,13 +16,14 @@ app.use(express.json()); // Permite leer req.body en todas las peticiones POST
 // ─── 2. NODEMAILER TRANSPORTER ───────────────────────────────────────────────
 // ─── 2. NODEMAILER TRANSPORTER ───────────────────────────────────────────────
 // ─── 2. NODEMAILER TRANSPORTER ───────────────────────────────────────────────
+// ─── 2. NODEMAILER TRANSPORTER ───────────────────────────────────────────────
 const transporter = nodemailer.createTransport({
-  host: "smtp-relay.brevo.com",
-  port: 2525, // 🔥 EL PUERTO ANTIBLOQUEOS 🔥
-  secure: false, // Sigue en false para este puerto
+  host: "smtp.sendgrid.net",
+  port: 2525,
+  secure: false, // OBLIGATORIO en false para el puerto 2525
   auth: {
-    user: process.env.EMAIL_USER, 
-    pass: process.env.EMAIL_PASS, 
+    user: "apikey", // Literalmente la palabra "apikey"
+    pass: process.env.EMAIL_PASS, // Tu llave SG... que pusiste en Render
   }
 });
 // Verificar conexión de correo al iniciar
@@ -117,9 +118,9 @@ app.post("/api/contact", async (req, res) => {
   try {
     // Email al equipo DentalTrack
     await transporter.sendMail({
-      from: `"DentalTrack Web" <${process.env.EMAIL_USER}>`,
-      to: process.env.EMAIL_RECEIVER || process.env.EMAIL_USER,
-      subject: `🦷 Nuevo contacto de ${clinic} — DentalTrack`,
+      from: '"DentalTrack Web" <davide.toroh@autonoma.edu.co>',
+  to: process.env.EMAIL_RECEIVER || "davide.toroh@autonoma.edu.co",
+  subject: `🦷 Nuevo contacto de ${clinic} — DentalTrack`,
       html: `
         <div style="font-family: 'Segoe UI', sans-serif; max-width: 600px; margin: 0 auto; background: #f9fafb; padding: 0; border-radius: 12px; overflow: hidden;">
           <div style="background: linear-gradient(135deg, #03080f 0%, #0c1830 100%); padding: 32px 40px; text-align: center;">
@@ -157,9 +158,9 @@ app.post("/api/contact", async (req, res) => {
 
     // Email de confirmación al prospecto
     await transporter.sendMail({
-      from: `"DentalTrack" <${process.env.EMAIL_USER}>`,
-      to: email,
-      subject: `✅ Recibimos tu mensaje, ${name.split(" ")[0]}! — DentalTrack`,
+      from: '"DentalTrack" <davide.toroh@autonoma.edu.co>',
+  to: email,
+  subject: `✅ Recibimos tu mensaje, ${name.split(" ")[0]}! — DentalTrack`,
       html: `
         <div style="font-family: 'Segoe UI', sans-serif; max-width: 600px; margin: 0 auto;">
           <div style="background: linear-gradient(135deg, #03080f, #0c1830); padding: 32px 40px; text-align: center; border-radius: 12px 12px 0 0;">
