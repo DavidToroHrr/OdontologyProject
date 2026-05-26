@@ -4,7 +4,7 @@ import { MessageCircle, X, Send, Bot } from 'lucide-react';
 export default function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { role: 'bot', text: '¡Hola! Soy el asistente virtual de DentalTrack. ¿En qué te puedo ayudar hoy?' }
+    { role: 'bot', text: '¡Hola! Soy el asistente virtual de SmileSync. ¿En qué te puedo ayudar hoy?' }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -76,7 +76,7 @@ export default function ChatBot() {
           <div className="bg-slate-900 p-4 flex justify-between items-center text-white shrink-0">
             <div className="flex items-center gap-2">
               <Bot className="text-teal-400" />
-              <span className="font-bold">Asistente DentalTrack</span>
+              <span className="font-bold">Asistente SmileSync</span>
             </div>
             <button onClick={() => setIsOpen(false)} className="text-slate-400 hover:text-white transition">
               <X size={20} />

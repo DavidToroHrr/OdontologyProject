@@ -46,7 +46,7 @@ export default function LandingPage({ onStartDemo }) {
               <div className="bg-gradient-to-br from-teal-500 to-teal-700 p-2 rounded-xl text-white shadow-md">
                 <Stethoscope size={24} />
               </div>
-              <span className="font-bold text-2xl tracking-tight text-slate-900">Dental<span className="text-teal-600">Track</span></span>
+              <span className="font-bold text-2xl tracking-tight text-slate-900">Smile<span className="text-teal-600">Sync</span></span>
             </div>
             
             <div className="hidden md:flex space-x-8 text-sm font-semibold text-slate-600">
@@ -88,7 +88,7 @@ export default function LandingPage({ onStartDemo }) {
               <span className="text-teal-600">impulsado por tecnología.</span>
             </h1>
             <p className="text-lg text-slate-700 mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed font-medium">
-              No somos una clínica tradicional. DentalTrack es una plataforma que te acompaña a diario con monitoreo, recompensas y contacto directo con tu especialista.
+              No somos una clínica tradicional. SmileSync es una plataforma que te acompaña a diario con monitoreo, recompensas y contacto directo con tu especialista.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <button onClick={onStartDemo} className="bg-teal-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-teal-700 hover:-translate-y-1 transition-all shadow-xl shadow-teal-200 flex items-center justify-center gap-2">

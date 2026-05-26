@@ -230,7 +230,7 @@ export default function PatientDashboard({ onBack }) {
         <div className="p-6 border-b border-slate-800 flex justify-between items-center">
           <div className="flex items-center gap-2">
             <Stethoscope className="text-teal-400" />
-            <span className="font-bold text-xl tracking-tight">Dental<span className="text-teal-500">Track</span></span>
+            <span className="font-bold text-xl tracking-tight">Smile<span className="text-teal-500">Sync</span></span>
           </div>
           <button className="md:hidden text-slate-400 hover:text-white" onClick={() => setIsSidebarOpen(false)}>
             <X size={24} />

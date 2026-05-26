@@ -7,7 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // ─── 1. MIDDLEWARE (SIEMPRE ARRIBA DE LAS RUTAS) ─────────────────────────────
-app.use(cors({ origin: "http://localhost:5173" })); // Puerto de Vite (React)
+app.use(cors()); // Puerto de Vite (React)
 app.use(express.json()); // Permite leer req.body en todas las peticiones POST
 
 // ─── 2. NODEMAILER TRANSPORTER ───────────────────────────────────────────────
